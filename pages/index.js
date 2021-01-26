@@ -1,79 +1,58 @@
+import Image from 'next/image';
 import {
   Angular,
-  Node,
-  React as ReactIcon,
-  Typescript,
-  Rxjs,
-  Nextjs,
-  Graphql,
-  Styled,
-  Sass,
-  Postcss,
-  Html5,
   Css3,
+  Graphql,
+  Html5,
   Js,
-  Webpack,
   Nestjs,
-  Codepen,
-  Linkedin,
-  Gmail,
-  Twitter
+  Nextjs,
+  Node,
+  Postcss,
+  React as ReactIcon,
+  Rxjs,
+  Sass,
+  Styled,
+  Typescript,
+  Webpack
 } from '../src/components/icons';
-
-import Image from 'next/image';
-import css from './index.module.css';
+import {
+  grid,
+  intro,
+  container,
+  me
+} from './index.module.css';
+import { Social } from '../src/components/Social/Social';
+import { Link } from '../src/components/Link/Link';
 
 function HomePage() {
   return (
-    <article>
-      <div className={css.intro}>
+    <article className={container}>
+      <div className={intro}>
         <div>
-          <h1 style={{ lineHeight: 1.2 }}>
-            <span style={{ fontSize: '1rem' }}>
+          <h1 className="squishy-text">
+            <span style="font-size: 1rem;">
               Hello, I am
             </span>
             <br />
-            <span
-              style={{
-                fontSize: '3rem'
-              }}
-            >
+            <span style="font-size: 2.5rem;">
               Filip J. Bulić
             </span>
             <br />
-            <span
-              style={{
-                fontSize: '1.5rem'
-              }}
-            >
+            <span style="font-size: 1.5rem;">
               Full-stack Developer
             </span>
+            <br />
+
+            <span style="font-size: 1.5rem;">
+              Currently working at{' '}
+              <Link href="https://infinum.com/">
+                Infinum
+              </Link>
+            </span>
           </h1>
-          <ul
-            className={css.social}
-            style={{ margin: '1rem 0 2rem' }}
-          >
-            <li>
-              <a href="https://www.linkedin.com/in/filip-jakov-buli%C4%87-239b991a5/">
-                <Linkedin />
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/bulicjakov">
-                <Twitter />
-              </a>
-            </li>
-            <li>
-              <a href="mailto:filipjakov.bulic@gmail.com">
-                <Gmail />
-              </a>
-            </li>
-            <li>
-              <a href="https://codepen.io/filipjakov">
-                <Codepen />
-              </a>
-            </li>
-          </ul>
+
+          <Social style={{ marginTop: '1rem' }} />
         </div>
 
         <Image
@@ -86,14 +65,16 @@ function HomePage() {
       </div>
 
       <section>
-        <h2>Technologies/frameworks I worked with:</h2>
-        <ul className={css.grid}>
+        <h2 className="squishy-text">
+          Technologies or frameworks I worked with:
+        </h2>
+        <ul className={grid} style={{ marginTop: '5vmin' }}>
           <li>
             <a href="https://en.wikipedia.org/wiki/HTML5">
               <Html5 />
             </a>
           </li>
-          <li>
+          <li data-favorite>
             <a href="https://developer.mozilla.org/en-US/docs/Archive/CSS3">
               <Css3 />
             </a>
