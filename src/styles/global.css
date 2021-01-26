@@ -1,0 +1,52 @@
+@import './reset.css';
+@import './colors.css';
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  font-size: clamp(1rem, 1rem + 0.5vw, 2rem);
+}
+
+// https://schepp.dev/posts/smooth-scrolling-and-page-search/
+@media screen and (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+/* https://twitter.com/5t3ph/status/1351509965345722380 */
+a:not([class]):focus {
+  outline: 1px solid currentColor;
+  outline-offset: 0.15em;
+}
+
+@supports (text-decoration-skip-ink: auto) {
+  a:not([class]) {
+    /* Adds space between link text and underline */
+    text-underline-offset: 0.1em;
+    /* Creates a break for descenders */
+    text-decoration-skip-ink: auto;
+  }
+}
+
+/* Rest */
+main > article {
+  display: grid;
+  grid-template-columns:
+    minmax(min(2rem, 2vw), 1fr)
+    minmax(auto, 60ch)
+    minmax(min(2rem, 2vw), 1fr);
+
+  & > * {
+    grid-column: 2;
+  }
+
+  & > .bleed {
+    grid-column: 1 / -1;
+    max-width: 80ch;
+    width: 100%;
+    justify-self: center;
+  }
+}

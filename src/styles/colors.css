@@ -1,0 +1,8 @@
+:root {
+  --color-primary: hsl(226, 90%, 32%); /* Blue #082a9b*/
+  --color-accent: hsl(7, 93%, 66%); /* Orange #f96a58*/
+  --color-background: hsl(42, 33%, 95%); /* White #f6f4ee*/
+
+  color: var(--color-primary);
+  background-color: var(--color-background);
+}
