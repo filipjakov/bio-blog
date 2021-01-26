@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import {
   Angular,
   Css3,
@@ -16,14 +17,9 @@ import {
   Typescript,
   Webpack
 } from '../src/components/icons';
-import {
-  grid,
-  intro,
-  container,
-  me
-} from './index.module.css';
-import { Social } from '../src/components/Social/Social';
 import { Link } from '../src/components/Link/Link';
+import { Social } from '../src/components/Social/Social';
+import { container, grid, intro } from './index.module.css';
 
 function HomePage() {
   return (
@@ -84,7 +80,7 @@ function HomePage() {
               <Js />
             </a>
           </li>
-          <li>
+          <li data-rip>
             <a href="https://angular.io/">
               <Angular />
             </a>
