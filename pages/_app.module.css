@@ -1,34 +1,11 @@
-.header {
-  & > nav {
-    display: flex;
-    justify-content: center;
-    /* Simple Little Use Case for `vmin` - https://css-tricks.com/simple-little-use-case-vmin/ */
-    padding: 5vmin 0;
+.navigation {
+  display: flex;
+  justify-content: center;
+  /* Simple Little Use Case for `vmin` - https://css-tricks.com/simple-little-use-case-vmin/ */
+  padding: 5vmin 0;
 
-    & > * + * {
-      margin-left: 1ch;
-    }
-  }
-}
-
-.main {
-  & > article {
-    display: grid;
-    grid-template-columns:
-      minmax(min(2rem, 2vw), 1fr)
-      minmax(auto, 60ch)
-      minmax(min(2rem, 2vw), 1fr);
-
-    & > * {
-      grid-column: 2;
-    }
-
-    & > .bleed {
-      grid-column: 1 / -1;
-      max-width: 100ch;
-      width: 100%;
-      justify-self: center;
-    }
+  & > * + * {
+    margin-left: 1ch;
   }
 }
 
@@ -41,6 +18,6 @@
   padding: calc(10vmin - 1rem) 0;
 
   & > * {
-    margin: 0.5rem;
+    margin: 0.5em;
   }
 }

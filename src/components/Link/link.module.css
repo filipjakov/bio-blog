@@ -1,24 +1,28 @@
 .link {
-  background: linear-gradient(
-    90deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone;
+  --underline-thickness: 0.12em;
 
-  text-decoration: underline;
-  text-decoration-color: var(--color-primary);
-  /* Adds space between link text and underline */
-  text-underline-offset: 0.1em;
-  text-decoration-thickness: 0.15em;
-  /* Creates a break for descenders */
-  text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: var(--color-accent);
 
-  transition: text-decoration-color 0.4s ease;
+  background-image: linear-gradient(
+      var(--color-primary),
+      var(--color-primary)
+    ),
+    linear-gradient(
+      90deg,
+      var(--color-accent),
+      var(--color-primary)
+    );
+
+  background-size: 100% var(--underline-thickness),
+    0 var(--underline-thickness);
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s linear,
+    background-position 0.2s linear;
 
   &:hover {
-    text-decoration-color: var(--color-accent);
+    background-size: 0 var(--underline-thickness),
+      100% var(--underline-thickness);
   }
 }

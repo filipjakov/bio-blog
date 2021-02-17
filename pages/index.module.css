@@ -1,7 +1,5 @@
-.container {
-  & > * + * {
-    margin-top: 10vmin;
-  }
+.container > * + * {
+  margin-top: 2rem;
 }
 
 .grid {
@@ -11,18 +9,42 @@
     minmax(min(10rem, 100%), 1fr)
   );
 
-  gap: 2rem;
+  gap: 1.5rem;
+
+  /* Safari is fucking weird */
+  /* Source: https://twitter.com/simevidas/status/1260926281723461634 */
+  @supports not (background: -webkit-named-image(i)) {
+    /* Dim elements that are not in the focus */
+    & a {
+      transition: opacity 0.6s ease;
+    }
+
+    &:hover a,
+    &:focus-within a {
+      opacity: 0.5;
+    }
+
+    &:hover a:hover,
+    &:focus-within a:focus {
+      opacity: 1;
+    }
+
+    &:focus-within a:hover:not(:focus) {
+      opacity: 0.7;
+    }
+  }
 
   & > * {
     padding: 1.5rem;
 
+    will-change: transform;
     transform: scale(0.7) rotateY(-30deg) rotateX(30deg)
       translateZ(4.5rem);
     transform-origin: 50% 100%;
     transform-style: preserve-3d;
 
     box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.25);
-    transition: all 0.6s ease;
+    transition: background 0.6s ease, transform 0.6s ease;
 
     background: var(--color-background);
 
@@ -87,10 +109,21 @@
 }
 
 .intro {
+  --gradient: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
+
+  padding-bottom: 5vmin;
+  /* TODO: safari hack */
+  border: 0;
+  border-bottom: 0.2em solid;
+  border-image: var(--gradient) 1;
 
   & > *:nth-of-type(1) {
     flex-grow: 1;
@@ -100,11 +133,7 @@
   & > *:nth-of-type(2) {
     border-radius: 50%;
     width: 200px;
-    background: linear-gradient(
-      90deg,
-      var(--color-primary) 0%,
-      var(--color-accent) 100%
-    );
-    margin: 2rem 2rem 0 !important;
+    background: var(--gradient);
+    margin: 2rem auto 0 !important;
   }
 }
