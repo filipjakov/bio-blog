@@ -26,28 +26,30 @@ function HomePage() {
   return (
     <Wrapper>
       <article className={container}>
-        <div className={intro}>
+        <section
+          className={intro}
+          style={{ marginTop: '5vmin' }}
+        >
           <div>
             <h1 className="squishy-text">
-              <span style="font-size: 1rem;">
+              <span style="font-size: 1rem; line-height: 1.3;">
                 Hello, I am
               </span>
               <br />
-              <span style="font-size: 2.5rem;">
+              <span style="font-size: 2.5rem; line-height: 1.2;">
                 Filip J. Bulić
               </span>
               <br />
-              <span style="font-size: 1.5rem;">
+              <span style="font-size: 1.5rem; line-height: 1.3;">
                 Full-stack Developer
               </span>
               <br />
 
-              <span style="font-size: 1.5rem;">
+              <span style="font-size: 1.5rem; line-height: 1.3;">
                 Currently working at{' '}
                 <Link href="https://infinum.com/">
                   Infinum
-                </Link>{' '}
-                🇭🇷
+                </Link>
               </span>
             </h1>
 
@@ -61,21 +63,21 @@ function HomePage() {
             width={200}
             height={200}
           />
-        </div>
+        </section>
         <section>
           <h2 className="squishy-text">
             Technologies and frameworks I worked with:
           </h2>
           <ul
             className={grid}
-            style={{ marginTop: '2rem' }}
+            style={{ marginTop: '5vmin' }}
           >
             <li>
               <a href="https://en.wikipedia.org/wiki/HTML5">
                 <Html5 />
               </a>
             </li>
-            <li data-favorite>
+            <li>
               <a href="https://developer.mozilla.org/en-US/docs/Archive/CSS3">
                 <Css3 />
               </a>
@@ -85,7 +87,7 @@ function HomePage() {
                 <Js />
               </a>
             </li>
-            <li data-rip>
+            <li>
               <a href="https://angular.io/">
                 <Angular />
               </a>

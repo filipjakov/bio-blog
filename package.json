@@ -7,13 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "svgr:icons": "./node_modules/@svgr/cli/bin/svgr ./src/assets/icons --icon --no-dimensions --ext jsx --out-dir ./src/components/icons",
-    "svgr:blobs": "./node_modules/@svgr/cli/bin/svgr ./src/assets/blobs --icon --no-dimensions --ext jsx --out-dir ./src/components/blobs"
+    "svgr": "./node_modules/@svgr/cli/bin/svgr ./src/assets/icons --icon --no-dimensions --ext jsx --out-dir ./src/components/icons"
   },
   "dependencies": {
     "next": "10.0.5",
     "next-plugin-preact": "3.0.3",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "6.7.0",
     "preact": "10.5.11",
     "preact-render-to-string": "5.1.12",
     "react": "npm:@preact/compat@0.0.4",

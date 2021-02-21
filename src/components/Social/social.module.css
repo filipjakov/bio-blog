@@ -1,5 +1,7 @@
 .social {
-  & > li {
+  --transition-duration: 0.4s;
+
+  & > * {
     position: relative;
     display: inline-block;
 
@@ -12,41 +14,51 @@
       height: 100%;
 
       background: linear-gradient(
-        90deg,
-        var(--color-primary) 0%,
-        var(--color-accent) 100%
+        to right,
+        var(--color-primary),
+        var(--color-accent)
       );
 
       z-index: -1;
-
-      transition: transform 0.4s ease;
     }
 
-    &:hover,
-    &:focus-within {
-      &::before {
-        transform: scale(0);
-      }
-
-      & svg {
-        transform: scale(1.5);
-        fill: var(--color-accent);
-      }
-    }
-
-    & + li {
+    & + * {
       margin-left: 1ch;
     }
 
     & > a {
       display: flex;
       padding: 0.5ch;
+    }
 
-      & > svg {
-        fill: var(--color-background);
-        height: 1.5rem;
+    & svg {
+      fill: var(--color-background);
+      height: 1.5em;
+    }
 
-        transition: all 0.4s ease;
+    /* Enable micro-iteractions only of the user has no preference */
+    @media (prefers-reduced-motion: no-preference) {
+      &::before {
+        transition: transform var(--transition-duration)
+          ease;
+      }
+
+      & svg {
+        transition: transform var(--transition-duration)
+            ease,
+          fill var(--transition-duration) ease;
+      }
+
+      &:hover,
+      &:focus-within {
+        &::before {
+          transform: scale(0);
+        }
+
+        & svg {
+          transform: scale(1.5);
+          fill: var(--color-accent);
+        }
       }
     }
   }

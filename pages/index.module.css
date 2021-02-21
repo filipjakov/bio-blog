@@ -3,6 +3,9 @@
 }
 
 .grid {
+  --elevation: 1em 1em 2em rgba(0 0 0 / 0.25);
+  --transition-duration: 0.6s;
+
   display: grid;
   grid-template-columns: repeat(
     auto-fill,
@@ -11,46 +14,14 @@
 
   gap: 1.5rem;
 
-  /* Safari is fucking weird */
-  /* Source: https://twitter.com/simevidas/status/1260926281723461634 */
-  @supports not (background: -webkit-named-image(i)) {
-    /* Dim elements that are not in the focus */
-    & a {
-      transition: opacity 0.6s ease;
-    }
-
-    &:hover a,
-    &:focus-within a {
-      opacity: 0.5;
-    }
-
-    &:hover a:hover,
-    &:focus-within a:focus {
-      opacity: 1;
-    }
-
-    &:focus-within a:hover:not(:focus) {
-      opacity: 0.7;
-    }
-  }
-
   & > * {
+    position: relative;
     padding: 1.5rem;
-
-    will-change: transform;
-    transform: scale(0.7) rotateY(-30deg) rotateX(30deg)
-      translateZ(4.5rem);
-    transform-origin: 50% 100%;
-    transform-style: preserve-3d;
-
-    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.25);
-    transition: background 0.6s ease, transform 0.6s ease;
 
     background: var(--color-background);
 
     &:hover,
     &:focus-within {
-      transform: scale(1);
       background: transparent;
     }
 
@@ -64,55 +35,99 @@
       height: 100%;
     }
 
+    /* Ring */
     &::before {
       pointer-events: none;
-      border: 4px solid var(--color-accent);
-
-      transform: translateZ(4rem);
-
-      &:hover {
-        transform: translateZ(0);
-      }
+      border: 0.2em solid var(--color-accent);
     }
 
+    /* Background */
     &::after {
-      box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.25);
       background-color: var(--color-accent);
+      z-index: -1;
+    }
 
-      transform: translateZ(-4rem);
+    & a {
+      display: block;
+      margin: -1.5rem;
+      padding: 1.5rem;
+    }
 
-      &:hover {
-        transform: translateZ(-1px);
+    & svg {
+      fill: var(--color-primary);
+    }
+
+    /* Progressive enhancment babyyyyyyyyy */
+    @media (prefers-reduced-motion: no-preference) {
+      box-shadow: var(--elevation);
+
+      transform-style: preserve-3d;
+      transform: scale(0.7) rotateY(-30deg) rotateX(30deg)
+        translateZ(4.5em);
+      transform-origin: center bottom;
+      will-change: transform;
+
+      transition: background var(--transition-duration) ease,
+        transform var(--transition-duration) ease;
+
+      &:hover,
+      &:focus-within {
+        transform: scale(1);
       }
-    }
 
-    &[data-favorite]::before {
-      content: '❤️';
-      font-size: 1.5rem;
-    }
+      /* Ring */
+      &::before {
+        transform: translateZ(4em);
 
-    &[data-rip]::before {
-      content: '⚰️';
-      font-size: 1.5rem;
+        &:hover {
+          transform: translateZ(0);
+        }
+      }
+
+      /* Background */
+      &::after {
+        box-shadow: var(--elevation);
+        transform: translateZ(-4em);
+      }
     }
   }
 
-  & a {
-    display: block;
-    margin: -1.5rem;
-    padding: 1.5rem;
+  /* Safari is fucking weird, remove the dimming */
+  /* Source: https://twitter.com/simevidas/status/1260926281723461634 */
+  @supports not (background: -webkit-named-image(i)) {
+    /* Dim elements that are not hovered/focused */
+    @media (prefers-reduced-motion: no-preference) {
+      & a {
+        transition: opacity 0.6s ease;
+      }
 
-    & > svg {
-      fill: var(--color-primary);
+      &:hover,
+      &:focus-within {
+        & a {
+          opacity: 0.5;
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        & a:hover,
+        & a:focus {
+          opacity: 1;
+        }
+      }
+
+      &:focus-within a:hover:not(:focus) {
+        opacity: 0.7;
+      }
     }
   }
 }
 
 .intro {
   --gradient: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-accent) 100%
+    to right,
+    var(--color-primary),
+    var(--color-accent)
   );
 
   display: flex;
@@ -131,9 +146,12 @@
 
   /* Image */
   & > *:nth-of-type(2) {
-    border-radius: 50%;
     width: 200px;
-    background: var(--gradient);
+    aspect-ratio: 1;
+
     margin: 2rem auto 0 !important;
+    border-radius: 50%;
+
+    background: var(--gradient);
   }
 }

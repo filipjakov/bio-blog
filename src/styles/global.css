@@ -17,6 +17,7 @@ a {
   }
 
   &:active {
+    /* TODO: better pseudo state styles */
     outline: 3px solid red;
     outline-offset: 0.2em;
   }
@@ -29,6 +30,7 @@ a {
   hyphens: auto;
 }
 
+/* Next */
 #__next {
   display: flex;
   flex-direction: column;
