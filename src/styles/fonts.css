@@ -1,7 +1,5 @@
 @font-face {
   font-family: 'Atkinson Hypelegible';
-  /* font-weight: normal; */
-  /* font-style: normal; */
   /* TODO: move to optional - https://simonhearne.com/2021/layout-shifts-webfonts/ */
   font-display: swap;
   src: url('/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.woff2')
@@ -22,8 +20,8 @@
     var(--fluid-type-max, 2rem)
   );
 
-  /* https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
   & * {
+    /* https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
     line-height: calc(2px + 2ex + 2px);
   }
 }

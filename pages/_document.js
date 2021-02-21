@@ -8,7 +8,7 @@ import Document, {
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link
             rel="preload"
@@ -21,6 +21,8 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* https://stackoverflow.com/questions/57401976/css-transition-flash-on-page-load-with-nextjs-production-build#answer-57401977 */}
+          <script> </script>
         </body>
       </Html>
     );

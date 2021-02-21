@@ -16,7 +16,7 @@ export default function FourOhFour() {
         <h2 style={{ justifySelf: 'center' }}>
           Looks like someone got lost
         </h2>
-        <Svg404 />
+        <Svg404 style="width: min(100%, 60vh); margin-left: auto; margin-right: auto;" />
       </article>
     </Wrapper>
   );

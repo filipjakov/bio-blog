@@ -1,5 +1,6 @@
 import '../src/styles/global.css';
 import NextLink from 'next/link';
+import Head from 'next/head';
 import { Link } from '../src/components/Link/Link';
 import { navigation, footer } from './_app.module.css';
 import { Social } from '../src/components/Social/Social';
@@ -8,6 +9,10 @@ import { Social } from '../src/components/Social/Social';
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>FJB | Home</title>
+        <meta name="description" content="Home page" />
+      </Head>
       <header>
         <nav className={navigation}>
           <NextLink href="/" passHref>
@@ -17,17 +22,17 @@ export default function MyApp({ Component, pageProps }) {
             <Link>Blog</Link>
           </NextLink>
           <NextLink href="/about" passHref>
-            <Link>TILs</Link>
+            <Link>About me</Link>
           </NextLink>
-          <NextLink href="/about" passHref>
-            <Link>About</Link>
+          <NextLink href="/agenda" passHref>
+            <Link>Agenda</Link>
           </NextLink>
         </nav>
       </header>
       <Component {...pageProps} />
       <footer className={footer}>
         <span>
-          © Filip Jakov Bulic {new Date().getFullYear()}
+          ©Filip Jakov Bulic, {new Date().getFullYear()}
         </span>
         <Social />
       </footer>

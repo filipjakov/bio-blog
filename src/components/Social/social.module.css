@@ -36,7 +36,6 @@
       height: 1.5em;
     }
 
-    /* Enable micro-iteractions only of the user has no preference */
     @media (prefers-reduced-motion: no-preference) {
       &::before {
         transition: transform var(--transition-duration)

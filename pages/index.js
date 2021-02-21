@@ -22,7 +22,7 @@ import { Social } from '../src/components/Social/Social';
 import { Wrapper } from '../src/components/Wrapper/Wrapper';
 import { container, grid, intro } from './index.module.css';
 
-function HomePage() {
+export default function HomePage() {
   return (
     <Wrapper>
       <article className={container}>
@@ -153,5 +153,3 @@ function HomePage() {
     </Wrapper>
   );
 }
-
-export default HomePage;
