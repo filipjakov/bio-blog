@@ -9,7 +9,7 @@ import { social } from './social.module.css';
 
 export const Social = ({ className, ...rest }) => {
   return (
-    <ul className={[social, className].join(' ')} {...rest}>
+    <ul className={`${social} ${className}`} {...rest}>
       <li>
         <a href="https://www.linkedin.com/in/filip-jakov-buli%C4%87-239b991a5/">
           <Linkedin />

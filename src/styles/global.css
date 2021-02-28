@@ -2,25 +2,22 @@
 @import './colors.css';
 @import './fonts.css';
 
-// https://schepp.dev/posts/smooth-scrolling-and-page-search/
-@media screen and (prefers-reduced-motion: no-preference) {
-  html:focus-within {
+/* https://schepp.dev/posts/smooth-scrolling-and-page-search/ */
+@media (prefers-reduced-motion: no-preference) {
+  :root:focus-within {
     scroll-behavior: smooth;
   }
 }
 
-/* https://twitter.com/5t3ph/status/1351509965345722380 */
-a {
-  &:focus {
-    outline: 3px solid currentColor;
-    outline-offset: 0.2em;
-  }
+/* https://piccalil.li/quick-tip/add-scroll-margin-to-all-elements-which-can-be-targeted */
+[id] {
+  scroll-margin-top: 2ex;
+}
 
-  &:active {
-    /* TODO: better pseudo state styles */
-    outline: 3px solid red;
-    outline-offset: 0.2em;
-  }
+/* https://twitter.com/5t3ph/status/1351509965345722380 */
+a:focus {
+  outline-offset: 0.1875em;
+  outline: 0.1875em dashed currentColor;
 }
 
 .squishy-text {
@@ -39,8 +36,4 @@ a {
   & > main {
     flex: 1;
   }
-}
-// https://piccalil.li/quick-tip/add-scroll-margin-to-all-elements-which-can-be-targeted
-[id] {
-  scroll-margin-top: 2ex;
 }

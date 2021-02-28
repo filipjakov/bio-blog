@@ -21,13 +21,30 @@
   background-repeat: no-repeat;
 
   &:hover {
+    --color-accent: hsl(
+      var(--color-accent-h),
+      var(--color-accent-s),
+      calc(var(--color-accent-l) + 5%)
+    );
+
     background-size: 0 var(--underline-thickness),
       100% var(--underline-thickness);
   }
 
+  /* &:focus {} covered globally with outline */
+
+  &:active {
+    --color-accent: hsl(
+      var(--color-accent-h),
+      var(--color-accent-s),
+      calc(var(--color-accent-l) - 5%)
+    );
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     transition: background-size var(--transition-duration)
-        linear,
-      background-position var(--transition-duration) linear;
+        ease,
+      background-position var(--transition-duration) ease,
+      color var(--transition-duration) ease;
   }
 }

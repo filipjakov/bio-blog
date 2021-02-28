@@ -1,6 +1,5 @@
 import '../styles/global.css';
 import NextLink from 'next/link';
-import Head from 'next/head';
 import { Link } from '../components/Link/Link';
 import { navigation, footer } from './_app.module.css';
 import { Social } from '../components/Social/Social';
@@ -9,10 +8,6 @@ import { Social } from '../components/Social/Social';
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>FJB | Home</title>
-        <meta name="description" content="Home page" />
-      </Head>
       <header>
         <nav className={navigation}>
           <NextLink href="/" passHref>

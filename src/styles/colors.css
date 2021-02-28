@@ -1,7 +1,33 @@
 :root {
-  --color-primary: hsl(226, 90%, 32%); /* Blue #082a9b*/
-  --color-accent: hsl(7, 93%, 66%); /* Orange #f96a58*/
-  --color-background: hsl(42, 33%, 95%); /* White #f6f4ee*/
+  /* Blue #082a9b */
+  --color-primary-h: 226;
+  --color-primary-s: 90%;
+  --color-primary-l: 32%;
+  --color-primary: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    var(--color-primary-l)
+  );
+
+  /* Orange #f96a58 */
+  --color-accent-h: 7;
+  --color-accent-s: 93%;
+  --color-accent-l: 66%;
+  --color-accent: hsl(
+    var(--color-accent-h),
+    var(--color-accent-s),
+    var(--color-accent-l)
+  );
+
+  /* White #f6f4ee */
+  --color-background-h: 42;
+  --color-background-s: 33%;
+  --color-background-l: 95%;
+  --color-background: hsl(
+    var(--color-background-h),
+    var(--color-background-s),
+    var(--color-background-l)
+  );
 
   color: var(--color-primary);
   background-color: var(--color-background);

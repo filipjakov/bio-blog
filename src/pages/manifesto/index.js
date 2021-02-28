@@ -5,6 +5,7 @@ import {
 } from './manifesto.module.css';
 import { Link } from '../../components/Link/Link';
 import NextLink from 'next/link';
+import Head from 'next/head';
 
 export default function Agenda({
   dependencies,
@@ -13,64 +14,70 @@ export default function Agenda({
   // Sticky navigaton on wide screens, content on right
   // TODO: Explainer on how the site is made: a11y, min js, libs, stack, ...
   return (
-    <main>
-      <article className={container}>
-        {/* TODO: a11y secondary navigation */}
-        <nav className={sticky + ' ' + navigation}>
-          <h1>What is this site about?</h1>
-          <ol>
-            <li>
-              <NextLink
-                href="/manifesto#background"
-                passHref
-              >
-                <Link>Background</Link>
-              </NextLink>
-            </li>
-            <li>
-              <NextLink href="/manifesto#stack" passHref>
-                <Link>Stack</Link>
-              </NextLink>
-            </li>
-            <li>
-              <NextLink
-                href="/manifesto#principles"
-                passHref
-              >
-                <Link>Principles</Link>
-              </NextLink>
-            </li>
-          </ol>
-        </nav>
-        <div style="max-width: 40ch;">
-          <section>
-            <h2 id="background">Background</h2>
-            <p>TODO!</p>
-          </section>
-          <section>
-            <h2 id="stack">Stack</h2>
-            <p>TODO!</p>
+    <>
+      <Head>
+        <title>FJB | Manifesto</title>
+        <meta name="description" content="Page manifesto" />
+      </Head>
+      <main>
+        <article className={container}>
+          {/* TODO: a11y secondary navigation */}
+          <nav className={sticky + ' ' + navigation}>
+            <h1>What is this site about?</h1>
+            <ol>
+              <li>
+                <NextLink
+                  href="/manifesto#background"
+                  passHref
+                >
+                  <Link>Background</Link>
+                </NextLink>
+              </li>
+              <li>
+                <NextLink href="/manifesto#stack" passHref>
+                  <Link>Stack</Link>
+                </NextLink>
+              </li>
+              <li>
+                <NextLink
+                  href="/manifesto#principles"
+                  passHref
+                >
+                  <Link>Principles</Link>
+                </NextLink>
+              </li>
+            </ol>
+          </nav>
+          <div style="max-width: 40ch;">
+            <section>
+              <h2 id="background">Background</h2>
+              <p>TODO!</p>
+            </section>
+            <section>
+              <h2 id="stack">Stack</h2>
+              <p>TODO!</p>
 
-            <h3>Dependencies</h3>
-            <pre style="overflow-y: auto;">
-              <code>
-                {JSON.stringify(dependencies, null, 2)}
-              </code>
-            </pre>
-            <h3>Dev Dependencies</h3>
-            <pre style="overflow-y: auto;">
-              <code>
-                {JSON.stringify(devDependencies, null, 2)}
-              </code>
-            </pre>
-          </section>
-          <section>
-            <h2 id="principles">Principles</h2>
-            <p>TODO!</p>
-          </section>
-        </div>
-      </article>
-    </main>
+              <h3>Dependencies</h3>
+              <pre style="overflow-y: auto;">
+                <code>
+                  {JSON.stringify(dependencies, null, 2)}
+                </code>
+              </pre>
+              <h3>Dev Dependencies</h3>
+              <pre style="overflow-y: auto;">
+                <code>
+                  {JSON.stringify(devDependencies, null, 2)}
+                </code>
+              </pre>
+            </section>
+            <section>
+              <h2 id="principles">Principles</h2>
+              <p>TODO!</p>
+            </section>
+          </div>
+        </article>
+      </main>
+    </>
   );
 }
 

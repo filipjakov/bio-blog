@@ -2,8 +2,8 @@
   --transition-duration: 0.4s;
 
   & > * {
-    position: relative;
     display: inline-block;
+    position: relative;
 
     &::before {
       content: '';

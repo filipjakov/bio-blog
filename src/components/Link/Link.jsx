@@ -5,7 +5,7 @@ export const Link = forwardRef(
   ({ children, className, ...rest }, ref) => {
     return (
       <a
-        className={[link, className].join(' ')}
+        className={`${link} ${className}`}
         ref={ref}
         {...rest}
       >
