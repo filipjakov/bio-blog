@@ -38,7 +38,7 @@
 }
 
 /* No way to remove this for now :( - half the size of ---max-width */
-@media (min-width: 600px) {
+@media (min-width: 720px) {
   .sticky {
     position: sticky;
     top: 2rem;

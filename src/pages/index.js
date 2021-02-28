@@ -64,6 +64,7 @@ export default function HomePage() {
             height={200}
           />
         </section>
+
         <section>
           <h2 className="squishy-text">
             Technologies and frameworks I worked with:
