@@ -2,6 +2,8 @@
 @import './colors.css';
 @import './fonts.css';
 
+@import './components/index.css';
+
 /* https://schepp.dev/posts/smooth-scrolling-and-page-search/ */
 @media (prefers-reduced-motion: no-preference) {
   html:focus-within {

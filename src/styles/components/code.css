@@ -1,0 +1,28 @@
+/* Using CSS to control text selection */
+/* https://codersblock.com/blog/using-css-to-control-text-selection/ */
+pre > code {
+  display: block;
+  overflow: auto;
+
+  padding: 1rem 0.5rem;
+
+  background-color: hsl(
+    var(--color-accent-h),
+    calc(var(--color-accent-s) - 25%),
+    calc(var(--color-accent-l) + 25%)
+  );
+
+  border-left: 0.2em currentColor solid;
+
+  user-select: all;
+
+  &:focus {
+    animation: select 100ms step-end forwards;
+  }
+}
+
+@keyframes select {
+  to {
+    user-select: text;
+  }
+}

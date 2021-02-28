@@ -1,7 +1,8 @@
 import {
   container,
   sticky,
-  navigation
+  navigation,
+  content
 } from './manifesto.module.css';
 import { Link } from '../../components/Link/Link';
 import NextLink from 'next/link';
@@ -34,11 +35,6 @@ export default function Agenda({
                 </NextLink>
               </li>
               <li>
-                <NextLink href="/manifesto#stack" passHref>
-                  <Link>Stack</Link>
-                </NextLink>
-              </li>
-              <li>
                 <NextLink
                   href="/manifesto#principles"
                   passHref
@@ -46,33 +42,117 @@ export default function Agenda({
                   <Link>Principles</Link>
                 </NextLink>
               </li>
+              <li>
+                <NextLink href="/manifesto#stack" passHref>
+                  <Link>Stack</Link>
+                </NextLink>
+              </li>
             </ol>
           </nav>
-          <div style="max-width: 40ch;">
+          <div className={content}>
             <section>
               <h2 id="background">Background</h2>
-              <p>TODO!</p>
+              <p>
+                I've been working in Web Development for a
+                couple of years now. There are quite an
+                amount of resources that I've read on the
+                subject so far, but rarely an opportunity to
+                "solidify" that knowledge... By reading
+                about certain development topics and not
+                applying them in real life scenarios, one
+                can never actually wrap his/her head around
+                them.
+              </p>
+              <p>
+                The idea of this site is to be my personal
+                playground in trying the latest patterns,
+                tricks, features and technologies that the
+                web can provide me with... and ideally,{' '}
+                <NextLink href="/blog" passHref>
+                  <Link>write about them</Link>
+                </NextLink>{' '}
+                .
+              </p>
             </section>
+
+            <section>
+              <h2 id="principles">Principles</h2>
+              <ul>
+                <li>
+                  <b>CSS is a first class citizen here!</b>
+                </li>
+                <li>
+                  <Link href="https://blog.hubspot.com/website/fluid-design">
+                    Fluid design approach
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://archive.hankchizljaw.com/wrote/the-power-of-progressive-enhancement/">
+                    Progressive Enhancement
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.matuzo.at/blog/writing-even-more-css-with-accessibility-in-mind-user-preferences/">
+                    Respecting user preferences
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.a11yproject.com/">
+                    a11y
+                  </Link>{' '}
+                  (or atleast I'll do my best)
+                </li>
+                <li>
+                  SEO friendly (with RSS feed, sitemaps and
+                  more!)
+                </li>
+                <li>
+                  Minimal code footprint: optimized assets,
+                  no unnecessary dependencies, build steps
+                  or Javascript, no (client) analytics and
+                  tracking
+                </li>
+                <li>Mobile-friendly</li>
+                <li>
+                  <Link href="https://github.com/filipjakov/bio-blog">
+                    Open source
+                  </Link>
+                </li>
+              </ul>
+            </section>
+
             <section>
               <h2 id="stack">Stack</h2>
-              <p>TODO!</p>
+              <p>
+                Below you can find the exact dependencies
+                used on the project.
+              </p>
+
+              <p>
+                Since{' '}
+                <Link href="https://nextjs.org/">
+                  NextJs
+                </Link>{' '}
+                is being used with the{' '}
+                <Link href="https://nextjs.org/docs/basic-features/pages#static-generation-recommended">
+                  SSG
+                </Link>{' '}
+                feature, these will update with every build
+                (if the dependencies change).
+              </p>
 
               <h3>Dependencies</h3>
-              <pre style="overflow-y: auto;">
-                <code>
+              <pre>
+                <code tabIndex="0">
                   {JSON.stringify(dependencies, null, 2)}
                 </code>
               </pre>
               <h3>Dev Dependencies</h3>
-              <pre style="overflow-y: auto;">
-                <code>
+              <pre>
+                <code tabIndex="0">
                   {JSON.stringify(devDependencies, null, 2)}
                 </code>
               </pre>
-            </section>
-            <section>
-              <h2 id="principles">Principles</h2>
-              <p>TODO!</p>
             </section>
           </div>
         </article>

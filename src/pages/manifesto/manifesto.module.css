@@ -16,24 +16,22 @@
   );
 
   max-width: var(--max-width);
-  gap: 5vmin; /* Easier to manage gaps */
+  gap: 2rem; /* Easier to manage gaps */
   /* Sticky with grid? https://melanie-richards.com/blog/css-grid-sticky/ */
   align-items: baseline;
 
-  margin: 0 auto;
   padding: 0 var(--padding);
+  margin-top: 2rem;
 }
 
 .navigation {
-  display: flex;
-  flex-direction: column;
+  & h1 {
+    font-size: 1.8em;
+  }
 
-  & > * {
-    max-width: max-content;
-
-    & + * {
-      margin-top: 2vmin;
-    }
+  & li {
+    font-size: 1.3rem;
+    margin-top: 0.5em;
   }
 }
 
@@ -42,5 +40,17 @@
   .sticky {
     position: sticky;
     top: 2rem;
+  }
+}
+
+.content {
+  max-width: 50ch;
+
+  & section + section {
+    margin-top: 2rem;
+  }
+
+  & section > * + * {
+    margin-top: 1rem;
   }
 }

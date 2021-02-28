@@ -30,8 +30,10 @@ body {
 /* Remove list styles on ul, ol elements */
 ul,
 ol {
-  list-style: none;
-  padding: 0;
+  &[class] {
+    list-style: none;
+    padding: 0;
+  }
 }
 
 /* Inherit fonts for inputs and buttons */
