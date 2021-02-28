@@ -4,7 +4,7 @@
 
 /* https://schepp.dev/posts/smooth-scrolling-and-page-search/ */
 @media (prefers-reduced-motion: no-preference) {
-  :root:focus-within {
+  html:focus-within {
     scroll-behavior: smooth;
   }
 }
@@ -27,7 +27,7 @@ a:focus {
   hyphens: auto;
 }
 
-/* Next */
+/* Base layout for Next */
 #__next {
   display: flex;
   flex-direction: column;

@@ -20,7 +20,7 @@ import {
 import { Link } from '../components/Link/Link';
 import { Social } from '../components/Social/Social';
 import { Layout } from '../components/Layout/Layout';
-import { container, grid, intro } from './index.module.css';
+import { grid, intro } from './index.module.css';
 
 export default function HomePage() {
   return (
@@ -30,10 +30,10 @@ export default function HomePage() {
         <meta name="description" content="Home page" />
       </Head>
       <Layout>
-        <article className={container}>
+        <article>
           <section
             className={intro}
-            style={{ marginTop: '5vmin' }}
+            style={{ marginTop: '2rem' }}
           >
             <div>
               <h1 className="squishy-text">
@@ -70,13 +70,13 @@ export default function HomePage() {
             />
           </section>
 
-          <section>
+          <section style={{ marginTop: '3rem' }}>
             <h2 className="squishy-text">
               Technologies and frameworks I worked with:
             </h2>
             <ul
               className={grid}
-              style={{ marginTop: '5vmin' }}
+              style={{ marginTop: '2rem' }}
             >
               <li>
                 <a href="https://en.wikipedia.org/wiki/HTML5">

@@ -19,12 +19,15 @@ ol {
 
 /* Set core body defaults */
 body {
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  /* -webkit-text-size-adjust: 100%; */
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
 }
 
-/* Remove list styles on ul, ol elements with a class attribute */
+/* Remove list styles on ul, ol elements */
 ul,
 ol {
   list-style: none;
