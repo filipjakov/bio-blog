@@ -1,9 +1,9 @@
-import '../src/styles/global.css';
+import '../styles/global.css';
 import NextLink from 'next/link';
 import Head from 'next/head';
-import { Link } from '../src/components/Link/Link';
+import { Link } from '../components/Link/Link';
 import { navigation, footer } from './_app.module.css';
-import { Social } from '../src/components/Social/Social';
+import { Social } from '../components/Social/Social';
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {

@@ -3,7 +3,7 @@ import {
   sticky,
   navigation
 } from './manifesto.module.css';
-import { Link } from '../../src/components/Link/Link';
+import { Link } from '../../components/Link/Link';
 import NextLink from 'next/link';
 
 export default function Agenda({ dependencies }) {
@@ -38,8 +38,9 @@ export default function Agenda({ dependencies }) {
 }
 
 export async function getStaticProps(context) {
-  const dependencies = (await import('../../package.json'))
-    .default.dependencies;
+  const dependencies = (
+    await import('../../../package.json')
+  ).default.dependencies;
 
   // Will be passed to the page component as props
   return {

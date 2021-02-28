@@ -1,5 +1,5 @@
-import { Svg404 } from '../src/components/404/404';
-import { Wrapper } from '../src/components/Wrapper/Wrapper';
+import { Svg404 } from '../components/404/404';
+import { Wrapper } from '../components/Wrapper/Wrapper';
 
 export default function FourOhFour() {
   return (

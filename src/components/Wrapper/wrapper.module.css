@@ -1,4 +1,4 @@
-.wrapper > *:only-of-type {
+.wrapper > * {
   display: grid;
   grid-template-columns:
     minmax(min(2rem, 2vw), 1fr)

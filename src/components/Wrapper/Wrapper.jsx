@@ -14,3 +14,5 @@ export const Wrapper = ({
     </main>
   );
 };
+
+// export const bleed = bleed;

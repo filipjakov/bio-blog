@@ -16,10 +16,10 @@ import {
   Styled,
   Typescript,
   Webpack
-} from '../src/components/icons';
-import { Link } from '../src/components/Link/Link';
-import { Social } from '../src/components/Social/Social';
-import { Wrapper } from '../src/components/Wrapper/Wrapper';
+} from '../components/icons';
+import { Link } from '../components/Link/Link';
+import { Social } from '../components/Social/Social';
+import { Wrapper } from '../components/Wrapper/Wrapper';
 import { container, grid, intro } from './index.module.css';
 
 export default function HomePage() {
