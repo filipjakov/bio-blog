@@ -8,7 +8,7 @@ import Document, {
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" dir="rtl">
+      <Html lang="en">
         <Head>
           <link
             rel="preload"

@@ -1,0 +1,46 @@
+.container {
+  --max-width: 1440px;
+  --padding: min(2vmin, 2rem);
+  /* Breakpoint for the albatross: cell size + padding-(left|right) */
+  --box-size: calc(
+    (var(--max-width) / 2) - (2 * var(--padding))
+  );
+
+  /* It's ya boi https://css-tricks.com/holy-albatross-with-widths/ */
+  --albatross: calc(var(--box-size) * 999 - 100% * 999);
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--albatross), 100%), 1fr)
+  );
+
+  max-width: var(--max-width);
+  gap: 5vmin; /* Easier to manage gaps */
+  /* Sticky with grid? https://melanie-richards.com/blog/css-grid-sticky/ */
+  align-items: baseline;
+
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    max-width: max-content;
+
+    & + * {
+      margin-top: 2vmin;
+    }
+  }
+}
+
+/* No way to remove this for now :( - half the size of ---max-width */
+@media (min-width: 600px) {
+  .sticky {
+    position: sticky;
+    top: 2rem;
+  }
+}

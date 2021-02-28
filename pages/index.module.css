@@ -98,7 +98,7 @@
     /* Dim elements that are not hovered/focused */
     @media (prefers-reduced-motion: no-preference) {
       & a {
-        transition: opacity 0.6s ease;
+        transition: opacity var(--transition-duration) ease;
       }
 
       &:hover,
@@ -117,7 +117,7 @@
       }
 
       &:focus-within a:hover:not(:focus) {
-        opacity: 0.7;
+        opacity: 0.8;
       }
     }
   }

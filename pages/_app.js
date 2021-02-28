@@ -24,8 +24,8 @@ export default function MyApp({ Component, pageProps }) {
           <NextLink href="/about" passHref>
             <Link>About me</Link>
           </NextLink>
-          <NextLink href="/agenda" passHref>
-            <Link>Agenda</Link>
+          <NextLink href="/manifesto" passHref>
+            <Link>Manifesto</Link>
           </NextLink>
         </nav>
       </header>
