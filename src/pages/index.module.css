@@ -121,34 +121,4 @@
       }
     }
   }
-
-  /* Safari is fucking weird, remove the dimming */
-  /* Source: https://twitter.com/simevidas/status/1260926281723461634 */
-  @supports not (background: -webkit-named-image(i)) {
-    /* Dim elements that are not hovered/focused */
-    @media (prefers-reduced-motion: no-preference) {
-      & a {
-        transition: opacity var(--transition-duration) ease;
-      }
-
-      &:hover,
-      &:focus-within {
-        & a {
-          opacity: 0.5;
-        }
-      }
-
-      &:hover,
-      &:focus-within {
-        & a:hover,
-        & a:focus {
-          opacity: 1;
-        }
-      }
-
-      &:focus-within a:hover:not(:focus) {
-        opacity: 0.8;
-      }
-    }
-  }
 }

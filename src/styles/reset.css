@@ -19,12 +19,14 @@ ol {
 
 /* Set core body defaults */
 body {
-  /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
   /* -webkit-text-size-adjust: 100%; */
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  /* https://css-tricks.com/custom-tailwind-css/#webkit-tap-highlight-color */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Remove list styles on ul, ol elements */

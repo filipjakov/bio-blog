@@ -9,7 +9,7 @@ export const Link = forwardRef(
         ref={ref}
         {...rest}
       >
-        {children}
+        <span>{children}</span>
       </a>
     );
   }

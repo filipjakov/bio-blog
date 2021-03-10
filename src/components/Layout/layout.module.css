@@ -1,9 +1,9 @@
 .layout > * {
   display: grid;
   grid-template-columns:
-    minmax(min(2rem, 2vw), 1fr)
+    minmax(var(--layout-gutter), 1fr)
     minmax(auto, 60ch)
-    minmax(min(2rem, 2vw), 1fr);
+    minmax(var(--layout-gutter), 1fr);
 
   & > * {
     grid-column: 2;
