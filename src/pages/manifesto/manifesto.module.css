@@ -1,9 +1,8 @@
 .container {
   --max-width: 1440px;
-  --padding: min(2vmin, 2rem);
   /* Breakpoint for the albatross: cell size + padding-(left|right) */
   --box-size: calc(
-    (var(--max-width) / 2) - (2 * var(--padding))
+    (var(--max-width) / 2) - (2 * var(--layout-gutter))
   );
 
   /* It's ya boi https://css-tricks.com/holy-albatross-with-widths/ */
@@ -20,8 +19,8 @@
   /* Sticky with grid? https://melanie-richards.com/blog/css-grid-sticky/ */
   align-items: baseline;
 
-  padding: 0 var(--padding);
-  margin-top: 2rem;
+  padding: 0 var(--layout-gutter);
+  margin: 2rem auto 0;
 }
 
 .navigation {

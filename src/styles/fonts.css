@@ -15,8 +15,9 @@
   /* Tie into a contract: https://piccalil.li/tutorial/fluid-typography-with-css-clamp */
   /* Descendants can then use fluid-type-* vars to define their ranges */
   font-size: clamp(
-    var(--fluid-type-min, 1rem),
-    var(--fluid-type-min, 1rem) + calc((0.5vw + 0.5vh) / 2),
+    var(--fluid-type-min, 1.3rem),
+    var(--fluid-type-min, 1.3rem) +
+      calc((0.5vw + 0.5vh) / 2),
     var(--fluid-type-max, 2rem)
   );
 

@@ -1,0 +1,128 @@
+.header {
+  --hit-area: 5vmin;
+  --compensate-hit-area: calc(var(--hit-area) * -1);
+  --animation-duration: 0.6s;
+
+  display: flex;
+  padding: 0 max(var(--layout-gutter), 50vw - 30ch);
+  z-index: 10;
+
+  /* Normalize */
+  & svg {
+    display: block;
+  }
+
+  & a {
+    padding: calc(var(--hit-area) / 2) 0;
+  }
+
+  /* Open button */
+  & a[href='#nav-open'] {
+    margin-left: var(--compensate-hit-area);
+    padding: var(--hit-area);
+  }
+
+  /* Logo */
+  & > a[href='/'] {
+    padding: var(--hit-area);
+    margin: 0 auto;
+  }
+
+  /* Close button */
+  & a[href='#_'] {
+    padding: var(--hit-area);
+    margin: var(--compensate-hit-area) 0
+      calc(var(--compensate-hit-area) + 2rem)
+      var(--compensate-hit-area);
+    width: max-content;
+  }
+
+  & > nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    grid-auto-rows: min-content;
+
+    min-height: 100vh;
+    width: min(100%, 23rem);
+    padding: 5vmin var(--layout-gutter);
+
+    border-style: solid;
+    border-image-slice: 1;
+    border-width: 0.5em;
+    border-left: 0;
+    border-top: 0;
+    border-image-source: linear-gradient(
+      225deg,
+      var(--color-primary),
+      var(--color-accent)
+    );
+
+    background-color: var(--color-background);
+
+    /* Drawer animation */
+    visibility: hidden;
+    transform: translateX(-110vw);
+    will-change: transform;
+
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--animation-duration) ease,
+        visibility 0s linear var(--animation-duration);
+
+      &:target {
+        transition: transform var(--animation-duration) ease;
+      }
+    }
+  }
+
+  @media screen and (min-width: 48em) {
+    & a {
+      padding: var(--hit-area) calc(var(--hit-area) / 2);
+
+      &:last-of-type {
+        margin-right: var(--compensate-hit-area);
+      }
+    }
+
+    /* Open button */
+    & a[href='#nav-open'] {
+      display: none;
+    }
+
+    /* Logo */
+    & > a[href='/'] {
+      margin: 0 0 0 var(--compensate-hit-area);
+    }
+
+    /* Close button */
+    & a[href='#_'] {
+      display: none;
+    }
+
+    & > nav {
+      position: static;
+
+      grid-auto-flow: column;
+      place-content: center flex-end;
+
+      min-height: max-content;
+      width: max-content;
+
+      visibility: visible;
+      transform: translateX(0);
+      will-change: intial;
+      transition: initial;
+      background-color: inherit;
+      border: 0;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
