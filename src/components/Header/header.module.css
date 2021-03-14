@@ -7,11 +7,6 @@
   padding: 0 max(var(--layout-gutter), 50vw - 30ch);
   z-index: 10;
 
-  /* Normalize */
-  & svg {
-    display: block;
-  }
-
   & a {
     padding: calc(var(--hit-area) / 2) 0;
   }
@@ -51,9 +46,8 @@
 
     border-style: solid;
     border-image-slice: 1;
-    border-width: 0.5em;
-    border-left: 0;
-    border-top: 0;
+    border-width: 0 0.5em 0.5em 0;
+
     border-image-source: linear-gradient(
       225deg,
       var(--color-primary),
@@ -113,7 +107,7 @@
       place-content: center flex-end;
 
       min-height: max-content;
-      width: max-content;
+      width: 100%;
 
       visibility: visible;
       transform: translateX(0);
@@ -121,8 +115,35 @@
       transition: initial;
       background-color: inherit;
       border: 0;
-      width: 100%;
       padding: 0;
     }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0 0 0 0;
+
+  visibility: hidden;
+
+  background-color: black;
+  opacity: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity var(--animation-duration) ease,
+      visibility 0s linear var(--animation-duration);
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 0.5;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity var(--animation-duration) ease;
+    }
+  }
+
+  @media screen and (min-width: 48em) {
+    display: none;
   }
 }

@@ -1,21 +1,23 @@
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+import { Close, Hamburger } from '../icons/index';
 import { Link } from '../Link/Link';
-import { header } from './header.module.css';
 import { Logo } from '../Logo/Logo';
-import { Hamburger, Close } from '../icons/index';
-import { useLayoutEffect } from 'react';
+import { header, overlay, show } from './header.module.css';
 
 export const Header = ({ className, ...rest }) => {
-  useLayoutEffect(() => {
-    // TODO: move as server check
-    if (typeof window === 'undefined') {
-      return;
-    }
+  const router = useRouter();
 
+  useEffect(() => {
     const onHashChange = () => {
       const isOpen = document.location.hash === '#nav-open';
 
       document.body.classList.toggle('lock', isOpen);
+      document
+        .querySelector('div[data-overlay]')
+        .classList.toggle(show, isOpen);
 
       isOpen
         ? document.querySelector('a[href="#_"]').focus()
@@ -37,12 +39,8 @@ export const Header = ({ className, ...rest }) => {
       );
   }, []);
 
-  // Removes or readds the body lock
-  useLayoutEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
+  // Removes or reads the body lock
+  useEffect(() => {
     const onScreenMatch = ({ matches }) =>
       document.body.classList.toggle(
         'lock',
@@ -61,8 +59,16 @@ export const Header = ({ className, ...rest }) => {
       mediaQueryList.removeListener(onScreenMatch);
   }, []);
 
-  // TODO: focus traps
+  // Nextjs router is fucking weird, neeed to do this manually
+  useEffect(() => {
+    const onRouteChange = () =>
+      (document.location.hash = '');
+    router.events.on('routeChangeStart', onRouteChange);
+    return () =>
+      router.events.off('routeChangeStart', onRouteChange);
+  }, []);
 
+  // TODO: focus traps
   return (
     <header className={header + ' ' + className} {...rest}>
       <a
@@ -77,6 +83,12 @@ export const Header = ({ className, ...rest }) => {
       <NextLink href="/" passHref>
         <Logo height="calc(2px + 2ex + 2px)" />
       </NextLink>
+
+      <div
+        className={overlay}
+        data-overlay
+        onClick={() => (document.location.hash = '#_')}
+      ></div>
 
       <nav id="nav-open">
         <a
