@@ -30,6 +30,12 @@ a:focus-visible {
   hyphens: auto;
 }
 
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
+::selection {
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+}
+
 /* Base layout for Next */
 #__next {
   display: flex;

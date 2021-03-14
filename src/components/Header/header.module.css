@@ -79,10 +79,6 @@
   @media screen and (min-width: 48em) {
     & a {
       padding: var(--hit-area) calc(var(--hit-area) / 2);
-
-      &:last-of-type {
-        margin-right: var(--compensate-hit-area);
-      }
     }
 
     /* Open button */
@@ -116,6 +112,10 @@
       background-color: inherit;
       border: 0;
       padding: 0;
+
+      & > a:last-of-type {
+        padding-right: 0;
+      }
     }
   }
 }

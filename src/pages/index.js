@@ -41,7 +41,10 @@ export default function HomePage() {
                   Hello, I am
                 </span>
                 <br />
-                <span style="font-size: 2.5rem; line-height: 1.2;">
+                <span
+                  className="clipped-gradient"
+                  style="font-size: 2.5rem; line-height: 1.2;"
+                >
                   Filip J. Bulić
                 </span>
                 <br />

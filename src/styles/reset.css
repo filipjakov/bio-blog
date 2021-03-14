@@ -26,7 +26,7 @@ body {
   text-rendering: optimizeSpeed;
   /* https://css-tricks.com/custom-tailwind-css/#webkit-tap-highlight-color */
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
 }
 
 /* Remove list styles on ul, ol elements */
@@ -45,3 +45,5 @@ textarea,
 select {
   font: inherit;
 }
+
+/* TODO: reset/normalize headings, safari looks weird */

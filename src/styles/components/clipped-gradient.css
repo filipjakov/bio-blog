@@ -1,0 +1,9 @@
+.clipped-gradient {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  background-clip: text;
+  color: transparent;
+}
