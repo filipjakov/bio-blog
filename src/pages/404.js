@@ -10,7 +10,7 @@ export default function FourOhFour() {
         <meta name="description" content="Page not found" />
       </Head>
       <Layout>
-        <article>
+        <article style={{ marginTop: '2rem' }}>
           <h1
             style={{
               justifySelf: 'center',

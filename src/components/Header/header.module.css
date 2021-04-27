@@ -1,5 +1,5 @@
 .header {
-  --hit-area: 5vmin;
+  --hit-area: calc(5vmin - 0.5rem);
   --compensate-hit-area: calc(var(--hit-area) * -1);
   --animation-duration: 0.6s;
 
@@ -58,7 +58,7 @@
 
     /* Drawer animation */
     visibility: hidden;
-    transform: translateX(-110vw);
+    transform: translateX(-105vw);
     will-change: transform;
     transition: var(
       --nomotion,

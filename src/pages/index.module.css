@@ -22,7 +22,6 @@
   /* Image */
   & > *:nth-of-type(2) {
     width: 10rem;
-    aspect-ratio: 1;
 
     margin: 2rem auto 0 !important;
     border-radius: 50%;

@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: center;
 
-  padding: calc(10vmin - 1rem) 0;
+  padding: calc(5vmin - 1rem)
+    max(var(--layout-gutter), 50vw - 30ch);
+  margin-top: 2rem;
 
   & > * {
     margin: 0.5em;

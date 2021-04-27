@@ -1,4 +1,8 @@
 .social {
+  /* Avoid repainting problems: https://dzhavat.github.io/2021/02/18/debugging-layout-repaint-issues-triggered-by-css-transition.html */
+  /* TODO: find a better solution */
+  position: relative;
+  z-index: 10;
   --transition-duration: 0.4s;
 
   & > * {
