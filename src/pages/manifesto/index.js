@@ -5,6 +5,8 @@ import {
   content
 } from './manifesto.module.css';
 import { Link } from '../../components/Link/Link';
+import { CodeSnippet } from '../../components/CodeSnippet/CodeSnippet';
+
 import NextLink from 'next/link';
 import Head from 'next/head';
 
@@ -142,17 +144,14 @@ export default function Agenda({
               </p>
 
               <h3>Dependencies</h3>
-              <pre>
-                <code tabIndex="0">
-                  {JSON.stringify(dependencies, null, 2)}
-                </code>
-              </pre>
+              <CodeSnippet>
+                {JSON.stringify(dependencies, null, 2)}
+              </CodeSnippet>
+
               <h3>Dev Dependencies</h3>
-              <pre>
-                <code tabIndex="0">
-                  {JSON.stringify(devDependencies, null, 2)}
-                </code>
-              </pre>
+              <CodeSnippet>
+                {JSON.stringify(devDependencies, null, 2)}
+              </CodeSnippet>
             </section>
           </div>
         </article>

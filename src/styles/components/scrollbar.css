@@ -13,14 +13,22 @@
 }
 
 *::-webkit-scrollbar-track {
+  /* TODO: Maybe transparent?? */
   background: var(--color-background);
 }
 
 *::-webkit-scrollbar-thumb {
+  --scrollbar-direction: to bottom;
+
   background-image: linear-gradient(
-    to bottom,
+    var(--scrollbar-direction),
     var(--color-primary),
     var(--color-accent)
   );
+
   border-radius: 999px;
+
+  &:horizontal {
+    --scrollbar-direction: to right;
+  }
 }

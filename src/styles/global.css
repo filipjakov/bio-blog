@@ -17,9 +17,11 @@ html:focus-within {
 }
 
 /* https://twitter.com/5t3ph/status/1351509965345722380 */
-a:focus-visible {
-  outline-offset: 0.1875em;
-  outline: 0.1875em dashed currentColor;
+/* https://mobile.twitter.com/argyleink/status/1387072095159406596 */
+:focus-visible {
+  transition: outline-offset 0.25s ease;
+  outline-offset: 0.5ch;
+  outline-color: var(--color-primary);
 }
 
 .squishy-text {
@@ -28,12 +30,6 @@ a:focus-visible {
   overflow-wrap: anywhere;
   hyphens: auto;
 }
-
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
-/* ::selection {
-  color: var(--color-primary);
-  background-color: var(--color-accent);
-} */
 
 /* Base layout for Next */
 #__next {

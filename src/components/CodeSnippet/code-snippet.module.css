@@ -1,0 +1,28 @@
+.code {
+  display: block;
+  overflow: auto;
+
+  padding: 1rem 0.5rem;
+
+  background-color: var(--color-background-code);
+
+  border-left: 0.2em solid;
+  border-image: linear-gradient(
+      to bottom,
+      var(--color-primary),
+      var(--color-accent)
+    )
+    1 100%;
+
+  /* https://codersblock.com/blog/using-css-to-control-text-selection/ */
+  user-select: all;
+  &:focus {
+    animation: select 100ms step-end forwards;
+  }
+}
+
+@keyframes select {
+  to {
+    user-select: text;
+  }
+}
