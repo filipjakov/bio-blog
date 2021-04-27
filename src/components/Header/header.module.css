@@ -60,19 +60,19 @@
     visibility: hidden;
     transform: translateX(-110vw);
     will-change: transform;
+    transition: var(
+      --nomotion,
+      transform var(--animation-duration) ease,
+      visibility 0s linear var(--animation-duration)
+    );
 
     &:target {
       visibility: visible;
       transform: translateX(0);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform var(--animation-duration) ease,
-        visibility 0s linear var(--animation-duration);
-
-      &:target {
-        transition: transform var(--animation-duration) ease;
-      }
+      transition: var(
+        --nomotion,
+        transform var(--animation-duration) ease
+      );
     }
   }
 
@@ -122,25 +122,30 @@
 
 .overlay {
   position: fixed;
-  inset: 0 0 0 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
   visibility: hidden;
 
   background-color: black;
   opacity: 0;
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity var(--animation-duration) ease,
-      visibility 0s linear var(--animation-duration);
-  }
+  transition: var(
+    --nomotion,
+    opacity var(--animation-duration) ease,
+    visibility 0s linear var(--animation-duration)
+  );
 
   &.show {
     visibility: visible;
     opacity: 0.5;
 
-    @media (prefers-reduced-motion: no-preference) {
-      transition: opacity var(--animation-duration) ease;
-    }
+    transition: var(
+      --nomotion,
+      opacity var(--animation-duration) ease
+    );
   }
 
   @media screen and (min-width: 48em) {

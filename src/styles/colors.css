@@ -1,34 +1,72 @@
+/* Palletes */
 :root {
-  /* Blue #082a9b */
-  --color-primary-h: 226;
-  --color-primary-s: 90%;
-  --color-primary-l: 32%;
-  --color-primary: hsl(
-    var(--color-primary-h),
-    var(--color-primary-s),
-    var(--color-primary-l)
+  /* Original target: #082a9b; 226 90% 32% */
+  --base-blue: 226, 90%;
+
+  --palette-blue-10: var(--base-blue), 10%;
+  --palette-blue-20: var(--base-blue), 20%;
+  --palette-blue-30: var(--base-blue), 30%;
+  --palette-blue-40: var(--base-blue), 40%;
+  --palette-blue-50: var(--base-blue), 50%;
+  --palette-blue-60: var(--base-blue), 60%;
+  --palette-blue-70: var(--base-blue), 70%;
+  --palette-blue-80: var(--base-blue), 80%;
+  --palette-blue-90: var(--base-blue), 90%;
+  --palette-blue-100: var(--base-blue), 100%;
+
+  /* Original target: #f96a58; 7 93% 66% */
+  --base-orange: 7, 93%;
+
+  --palette-orange-10: var(--base-orange), 10%;
+  --palette-orange-20: var(--base-orange), 20%;
+  --palette-orange-30: var(--base-orange), 30%;
+  --palette-orange-40: var(--base-orange), 40%;
+  --palette-orange-50: var(--base-orange), 50%;
+  --palette-orange-60: var(--base-orange), 60%;
+  --palette-orange-65: var(--base-orange), 65%;
+  --palette-orange-70: var(--base-orange), 70%;
+  --palette-orange-80: var(--base-orange), 80%;
+  --palette-orange-90: var(--base-orange), 90%;
+  --palette-orange-100: var(--base-orange), 100%;
+
+  /* Original target: #f6f4ee; 42 33% 95% */
+  --base-white: 42, 33%;
+
+  --palette-white-10: var(--base-white), 10%;
+  --palette-white-20: var(--base-white), 20%;
+  --palette-white-30: var(--base-white), 30%;
+  --palette-white-40: var(--base-white), 40%;
+  --palette-white-50: var(--base-white), 50%;
+  --palette-white-60: var(--base-white), 60%;
+  --palette-white-70: var(--base-white), 70%;
+  --palette-white-80: var(--base-white), 80%;
+  --palette-white-90: var(--base-white), 90%;
+  --palette-white-95: var(--base-white), 95%;
+  --palette-white-100: var(--base-white), 100%;
+
+  /* ### TODO: gradient interpolation https://learnui.design/tools/gradient-generator.html */
+}
+
+/* Colors */
+:root {
+  --color-primary: hsla(var(--palette-blue-30), 100%);
+
+  --color-accent: hsla(var(--palette-orange-65), 100%);
+  --color-accent-hover: hsla(
+    var(--palette-orange-70),
+    100%
+  );
+  --color-accent-active: hsla(
+    var(--palette-orange-60),
+    100%
   );
 
-  /* Orange #f96a58 */
-  --color-accent-h: 7;
-  --color-accent-s: 93%;
-  --color-accent-l: 66%;
-  --color-accent: hsl(
-    var(--color-accent-h),
-    var(--color-accent-s),
-    var(--color-accent-l)
-  );
-
-  /* White #f6f4ee */
-  --color-background-h: 42;
-  --color-background-s: 33%;
-  --color-background-l: 95%;
-  --color-background: hsl(
-    var(--color-background-h),
-    var(--color-background-s),
-    var(--color-background-l)
-  );
+  --color-background: hsla(var(--palette-white-95), 100%);
 
   color: var(--color-primary);
   background-color: var(--color-background);
+
+  @media (prefers-color-scheme: dark) {
+    /* TODO: https://lea.verou.me/2021/03/inverted-lightness-variables/ */
+  }
 }

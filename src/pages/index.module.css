@@ -48,11 +48,29 @@
     position: relative;
     padding: 1.5em;
 
+    box-shadow: var(--nomotion, var(--elevation));
+
+    transform-style: var(--nomotion, preserve-3d);
+    transform: var(
+      --nomotion,
+      scale(0.7) rotateY(-30deg) rotateX(30deg)
+        translateZ(4.5em)
+    );
+    transform-origin: var(--nomotion, center bottom);
+    will-change: var(--nomotion, transform);
+
+    transition: var(
+      --nomotion,
+      background var(--transition-duration) ease,
+      transform var(--transition-duration) ease
+    );
+
     background: var(--color-background);
 
     &:hover,
     &:focus-within {
       background: transparent;
+      transform: var(--nomotion, scale(1));
     }
 
     &::before,
@@ -69,11 +87,18 @@
     &::before {
       pointer-events: none;
       border: 0.2em solid var(--color-accent);
+      transform: var(--nomotion, translateZ(4em));
+
+      &:hover {
+        transform: var(--nomotion, translateZ(0));
+      }
     }
 
     /* Background */
     &::after {
       background-color: var(--color-accent);
+      box-shadow: var(--nomotion, var(--elevation));
+      transform: var(--nomotion, translateZ(-4em));
       z-index: -1;
     }
 
@@ -86,39 +111,15 @@
     & svg {
       fill: var(--color-primary);
     }
-
-    /* Progressive enhancment babyyyyyyyyy */
-    @media (prefers-reduced-motion: no-preference) {
-      box-shadow: var(--elevation);
-
-      transform-style: preserve-3d;
-      transform: scale(0.7) rotateY(-30deg) rotateX(30deg)
-        translateZ(4.5em);
-      transform-origin: center bottom;
-      will-change: transform;
-
-      transition: background var(--transition-duration) ease,
-        transform var(--transition-duration) ease;
-
-      &:hover,
-      &:focus-within {
-        transform: scale(1);
-      }
-
-      /* Ring */
-      &::before {
-        transform: translateZ(4em);
-
-        &:hover {
-          transform: translateZ(0);
-        }
-      }
-
-      /* Background */
-      &::after {
-        box-shadow: var(--elevation);
-        transform: translateZ(-4em);
-      }
-    }
   }
+}
+
+.clippedGradient {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  background-clip: text;
+  color: transparent;
 }

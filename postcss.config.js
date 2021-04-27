@@ -6,13 +6,13 @@ module.exports = {
         stage: 3,
         autoprefixer: {
           flexbox: false,
-          grid: false,
+          grid: false
         },
         features: {
           'custom-properties': false,
           'nesting-rules': true
-        },
-      },
-    ],
+        }
+      }
+    ]
   ]
-}
+};

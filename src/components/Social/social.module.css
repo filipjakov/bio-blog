@@ -19,6 +19,11 @@
         var(--color-accent)
       );
 
+      transition: var(
+        --nomotion,
+        transform var(--transition-duration) ease
+      );
+
       z-index: -1;
     }
 
@@ -34,28 +39,29 @@
     & svg {
       fill: var(--color-background);
       height: 1.5em;
+
+      transition: var(
+        --nomotion,
+        transform var(--transition-duration) ease,
+        fill var(--transition-duration) ease
+      );
     }
 
-    @media (prefers-reduced-motion: no-preference) {
+    &:hover,
+    &:focus-within {
       &::before {
-        transition: transform var(--transition-duration)
-          ease;
+        transform: var(--nomotion, scale(0));
       }
 
       & svg {
-        transition: transform var(--transition-duration)
-            ease,
-          fill var(--transition-duration) ease;
+        transform: var(--nomotion, scale(1.5));
       }
+    }
 
+    @media (prefers-reduced-motion: no-preference) {
       &:hover,
       &:focus-within {
-        &::before {
-          transform: scale(0);
-        }
-
         & svg {
-          transform: scale(1.5);
           fill: var(--color-accent);
         }
       }

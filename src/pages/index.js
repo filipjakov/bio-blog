@@ -20,7 +20,11 @@ import {
 import { Link } from '../components/Link/Link';
 import { Social } from '../components/Social/Social';
 import { Layout } from '../components/Layout/Layout';
-import { grid, intro } from './index.module.css';
+import {
+  grid,
+  intro,
+  clippedGradient
+} from './index.module.css';
 
 export default function HomePage() {
   return (
@@ -42,7 +46,7 @@ export default function HomePage() {
                 </span>
                 <br />
                 <span
-                  className="clipped-gradient"
+                  className={clippedGradient}
                   style="font-size: 2.5rem; line-height: 1.2;"
                 >
                   Filip J. Bulić
